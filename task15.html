@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   #main{
+    text-align: center;
+    background-color: cadetblue;
+    margin-left: 450px;
+    margin-right: 600px;
+   }
+   .a{
+    width: "300px";
+    
+   }
+</style>
+<body>
+    <div id="main" style="width: 500px; height: 500px; ">
+       
+        <br>
+        <br>
+        <br>
+        <div class="a"> TO-DO LIST</div>
+        <br>
+        <div class="b">
+            <input id ="taskdata" type="text">
+            <button onclick="addtask()">ADD</button>
+
+
+        </div>
+    <div class="c">
+        <ul id="tasklist"></ul>
+    </div>
+<script>
+   function addtask() {
+
+try {
+
+    let taskInput = document.getElementById('taskdata').value
+    console.log(taskInput);
+    
+    if (taskInput === "") {
+        throw new Error("is empty")
+    } else {
+
+
+
+
+        let newelement = document.createElement('li')
+        newelement.innerHTML = taskInput
+        var list = document.getElementById('tasklist')
+        list.appendChild(newelement)
+
+        list.addEventListener('click', function () {
+            list.remove()
+        })
+
+    }
+
+
+    document.getElementById('taskdata').value=''
+} 
+catch (error) {
+    alert("input " + error.message);
+}
+ 
+}
+ 
+
+       
+     </script>  
+</body>
+
+
+</html>
+
+
+
